@@ -16,9 +16,6 @@ export default function SourceSlide({ slide, training }: SlideViewProps): React.
         </Lead>
         <BulletList>
           <Bullet marker="▤">
-            Das <strong>Verzeichnis 2021–2024</strong> sammelt alle Artikel der Rubrik.
-          </Bullet>
-          <Bullet marker="83" tone="violet" size="lg">
             Unser Artikel: <strong>Nr. 83</strong> aus dem Jahr <strong>2024</strong>.
           </Bullet>
         </BulletList>
