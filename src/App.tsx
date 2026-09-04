@@ -102,7 +102,8 @@ export default function App(): React.JSX.Element {
       </header>
 
       <main className="stage-wrap">
-        <section key={slide.id} className={slide.layout === 'single' || index === 7 ? 'stage single slide-anim' : 'stage slide-anim'} aria-live="polite">
+        <section key={slide.id} className={slide.layout === 'single' || index === 7 ? 'stage single slide-anim' : 'stage slide-anim'} aria-roledescription="Folie" aria-label={`Folie ${index + 1} von ${total}: ${slide.title}`}>
+          <span className="sr-only" aria-live="polite">{`Folie ${index + 1} von ${total}: ${slide.title}`}</span>
           {index === 0 && (
             <>
               <div>
@@ -170,7 +171,7 @@ export default function App(): React.JSX.Element {
                 </p>
                 <div className="mini-card" style={{ borderStyle: 'dashed', borderColor: 'rgba(167,139,250,0.5)' }}>
                   <h3>Metapher: kosmischer Kleber</h3>
-                  <p>Ein faint leuchtendes <strong>Netz</strong> hält Galaxien zusammen — wir sehen den Kleber nicht, nur seine Wirkung.</p>
+                  <p>Ein <strong>schwach</strong> leuchtendes <strong>Netz</strong> hält Galaxien zusammen — wir sehen den Kleber nicht, nur seine Wirkung.</p>
                 </div>
                 <p style={{ display: 'flex', gap: 10, marginTop: 14, fontSize: '1rem', fontWeight: 600 }}>
                   <span style={{ color: '#7f8cbd' }}>┄ erwartet: langsam</span>
@@ -210,7 +211,7 @@ export default function App(): React.JSX.Element {
               <div className="visual">
                 <figure className="photo-frame">
                   <img className="photo" src={IMG.abell} alt="Galaxienhaufen Abell 370 — solche Haufen untersuchte Zwicky" loading="lazy" />
-                  <figcaption className="photo-cap">Coma-Haufen-Typ: Zwickys Revier · Hubble</figcaption>
+                  <figcaption className="photo-cap">Galaxienhaufen — Zwickys Revier · Hubble</figcaption>
                 </figure>
               </div>
             </>
@@ -287,7 +288,11 @@ export default function App(): React.JSX.Element {
               <h2 className="slide-title">Schlussvideo</h2>
               {!videoOn ? (
                 <button type="button" className="video-facade" onClick={() => setVideoOn(true)} aria-label="Video abspielen">
-                  <img src={`https://i.ytimg.com/vi/${VIDEO_ID}/maxresdefault.jpg`} alt="Video-Vorschaubild" loading="lazy" />
+                  <img
+                    src={`https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`}
+                    alt="Video-Vorschaubild: Film zum Thema Dunkle Materie"
+                    loading="lazy"
+                  />
                   <span className="play" aria-hidden="true"><span>▶</span></span>
                 </button>
               ) : (
@@ -328,7 +333,7 @@ export default function App(): React.JSX.Element {
       </footer>
 
       {showNotes && (
-        <aside className="notes" role="complementary" aria-label="Sprechernotizen" onClick={() => setShowNotes(false)}>
+        <aside className="notes" role="dialog" aria-modal="false" aria-label="Sprechernotizen" onClick={() => setShowNotes(false)}>
           <h4>Notizen · Folie {index + 1} — nur für dich</h4>
           <ul>
             {slide.notes.map((n) => (

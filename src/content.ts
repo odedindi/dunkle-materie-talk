@@ -16,7 +16,6 @@ export const SLIDES: Slide[] = [
     kicker: 'Einführung · 1 Minute',
     title: 'Was ist Dunkle Materie?',
     targetSeconds: 60,
-    layout: 'single',
     notes: [
       'Begrüßung: „Stellt euch vor, wir sehen nur etwa 5 % des Universums.“',
       'Framing: Der Rest ist unsichtbar — heute geht es um den größten unsichtbaren Anteil.',
@@ -96,7 +95,7 @@ export const SLIDES: Slide[] = [
   {
     id: 7,
     kicker: 'Zum Abschluss · Video',
-    title: 'Schlusvideo',
+    title: 'Schlussvideo',
     targetSeconds: 0,
     notes: [
       'Video nur per Klick starten (kein Autoplay).',
