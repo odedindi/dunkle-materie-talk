@@ -24,6 +24,13 @@ yarn preview    # dist/ lokal prüfen
 - **Vercel/Netlify:** Build-Command `yarn build`, Output `dist/`, kein Env nötig.
 - Oder `dist/` per USB mitnehmen und `index.html`- preview via `yarn preview`.
 
+## Modi: Üben vs. Vortragen
+
+- **Training:** `?training=1` anhängen (z. B. `http://localhost:4173/?training=1`) — zeigt
+  Sprechernotizen (Button + <kbd>N</kbd>), Notiz-Hinweis und Zeitangaben pro Folie.
+- **Klasse (Standard):** URL ohne Parameter — Notizen, Notizen-Button und Zeitangaben sind
+  komplett ausgeblendet, auch per Tastatur nicht aufrufbar.
+
 ## Bedienung im Unterricht
 
 | Aktion | Wie |
