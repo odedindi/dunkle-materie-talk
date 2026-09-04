@@ -138,9 +138,9 @@ export default function App(): React.JSX.Element {
                 <p className="kicker">{slide.kicker}</p>
                 <h2 className="slide-title">Woraus besteht das <span className="grad">Universum?</span></h2>
                 <ul className="bullets">
-                  <li><span className="tick" style={{ borderColor: '#7dd3fc66', color: '#7dd3fc', background: '#7dd3fc1f' }}>5</span><span><strong>Normale Materie:</strong> Sterne, Planeten, wir — alles Sichtbare.</span></li>
-                  <li><span className="tick" style={{ borderColor: '#a78bfa66', color: '#a78bfa', background: '#a78bfa1f' }}>27</span><span><strong>Dunkle Materie:</strong> unsichtbar, aber über <strong>Schwerkraft</strong> messbar.</span></li>
-                  <li><span className="tick" style={{ borderColor: '#22d3ee66', color: '#22d3ee', background: '#22d3ee1f' }}>68</span><span><strong>Dunkle Energie:</strong> treibt die <strong>beschleunigte Ausdehnung</strong>.</span></li>
+                  <li><span className="tick" style={{ borderColor: '#7dd3fc66', color: '#7dd3fc', background: '#7dd3fc1f', width: "3ch", height: "3ch" }}>5</span><span><strong>Normale Materie:</strong> Sterne, Planeten, wir — alles Sichtbare.</span></li>
+                  <li><span className="tick" style={{ borderColor: '#a78bfa66', color: '#a78bfa', background: '#a78bfa1f', width: "3ch", height: "3ch" }}>27</span><span><strong>Dunkle Materie:</strong> unsichtbar, aber über <strong>Schwerkraft</strong> messbar.</span></li>
+                  <li><span className="tick" style={{ borderColor: '#22d3ee66', color: '#22d3ee', background: '#22d3ee1f', width: "3ch", height: "3ch" }}>68</span><span><strong>Dunkle Energie:</strong> treibt die <strong>beschleunigte Ausdehnung</strong>.</span></li>
                 </ul>
                 {slide.vocab && (
                   <div className="vocab" role="note" aria-label="Vokabeln">
