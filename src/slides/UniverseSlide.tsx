@@ -29,7 +29,7 @@ export default function UniverseSlide({ slide, training }: SlideViewProps): Reac
             <strong>Dunkle Energie:</strong> treibt die <strong>beschleunigte Ausdehnung</strong>.
           </Bullet>
         </BulletList>
-        <VocabBox words={slide.vocab ?? []} />
+        <VocabBox words={slide.vocab ?? []} training={training}/>
       </div>
       <div className="visual">
         <div className="donut-col">

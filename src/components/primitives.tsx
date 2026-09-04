@@ -83,8 +83,8 @@ export function BulletList({ children }: { children: ReactNode }): React.JSX.Ele
   return <ul className="bullets">{children}</ul>;
 }
 
-export function VocabBox({ words }: { words: string[] }): React.JSX.Element | null {
-  if (words.length === 0) return null;
+export function VocabBox({ words, training }: { words: string[], training?:boolean }): React.JSX.Element | null {
+  if (words.length === 0 || training) return null;
   return (
     <div className="vocab" role="note" aria-label="Vokabeln">
       <b>Wörterbox B2:</b> {words.join(' · ')}
