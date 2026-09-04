@@ -1,28 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
 import DonutChart from './components/DonutChart';
-import GalaxyDiagram from './components/GalaxyDiagram';
 import Starfield from './components/Starfield';
-import { SLIDES, VIDEO_ID, formatTime } from './content';
+import { SLIDES, VIDEO_ID } from './content';
 
-function useSectionTimer(targetSeconds: number, slideId: number) {
-  const [elapsed, setElapsed] = useState(0);
-  const [running, setRunning] = useState(targetSeconds > 0);
-
-  useEffect(() => {
-    setElapsed(0);
-    setRunning(targetSeconds > 0);
-  }, [slideId, targetSeconds]);
-
-  useEffect(() => {
-    if (!running || targetSeconds <= 0) return;
-    const id = window.setInterval(() => setElapsed((e) => e + 1), 1000);
-    return () => window.clearInterval(id);
-  }, [running, targetSeconds]);
-
-  const remaining = Math.max(0, targetSeconds - elapsed);
-  const frac = targetSeconds > 0 ? Math.min(1, elapsed / targetSeconds) : 0;
-  return { elapsed, remaining, frac, running, setRunning, setElapsed };
-}
+const BASE = import.meta.env.BASE_URL;
+const IMG = {
+  whirlpool: `${BASE}img/whirlpool.jpg`,
+  andromeda: `${BASE}img/andromeda.jpg`,
+  abell: `${BASE}img/abell370.jpg`,
+  zwicky: `${BASE}img/zwicky.jpg`,
+  rubin: `${BASE}img/rubin-aip.jpg`,
+  romanScope: `${BASE}img/roman-telescope.png`,
+  nancy: `${BASE}img/nancy-roman.jpg`,
+};
 
 export default function App(): React.JSX.Element {
   const [index, setIndex] = useState(0);
@@ -31,10 +21,6 @@ export default function App(): React.JSX.Element {
 
   const slide = SLIDES[index];
   const total = SLIDES.length;
-  const { elapsed, remaining, frac, running, setRunning, setElapsed } = useSectionTimer(
-    slide.targetSeconds,
-    slide.id,
-  );
 
   const goTo = useCallback(
     (next: number) => {
@@ -90,8 +76,6 @@ export default function App(): React.JSX.Element {
     return () => window.removeEventListener('keydown', onKey);
   }, [next, prev, goTo, total]);
 
-  const timerClass = slide.targetSeconds <= 0 ? 'timer' : remaining <= 0 ? 'timer over' : remaining <= 15 ? 'timer warn' : 'timer';
-
   return (
     <div className="app">
       <Starfield />
@@ -138,17 +122,11 @@ export default function App(): React.JSX.Element {
                   <li><span className="tick">◎</span><span>Eine detektivische Suche nach <strong>unsichtbarer Masse</strong>.</span></li>
                 </ul>
               </div>
-              <div className="visual" aria-hidden="true">
-                <svg viewBox="0 0 300 300" style={{ maxWidth: 380 }}>
-                  <circle cx="150" cy="150" r="120" fill="none" stroke="#a78bfa" strokeWidth="1.5" opacity="0.5" />
-                  <circle cx="150" cy="150" r="80" fill="none" stroke="#7dd3fc" strokeWidth="1.2" opacity="0.6" />
-                  <circle cx="150" cy="150" r="34" fill="#fff" opacity="0.95" />
-                  <circle cx="150" cy="150" r="46" fill="none" stroke="#fbbf24" strokeWidth="2" opacity="0.7" />
-                  <circle cx="230" cy="90" r="3" fill="#fff" />
-                  <circle cx="80" cy="200" r="2.4" fill="#7dd3fc" />
-                  <circle cx="200" cy="220" r="2" fill="#fff" />
-                  <circle cx="110" cy="70" r="2" fill="#fbbf24" />
-                </svg>
+              <div className="visual">
+                <figure className="photo-frame">
+                  <img className="photo" src={IMG.whirlpool} alt="Spiralgalaxie M51 (Whirlpool-Galaxie), aufgenommen vom Hubble-Teleskop" loading="eager" />
+                  <figcaption className="photo-cap">M51 · 23 Mio. Lichtjahre entfernt · NASA/ESA Hubble</figcaption>
+                </figure>
               </div>
             </>
           )}
@@ -170,7 +148,7 @@ export default function App(): React.JSX.Element {
                 )}
               </div>
               <div className="visual">
-                <div style={{ width: 'min(100%, 380px)' }}>
+                <div style={{ width: 'min(100%, 420px)' }}>
                   <DonutChart />
                   <div className="card-grid" style={{ marginTop: 12 }}>
                     <div className="mini-card"><h3 style={{ color: '#7dd3fc' }}>5 % normal</h3><p>Was wir sehen und anfassen.</p></div>
@@ -194,8 +172,17 @@ export default function App(): React.JSX.Element {
                   <h3>Metapher: kosmischer Kleber</h3>
                   <p>Ein faint leuchtendes <strong>Netz</strong> hält Galaxien zusammen — wir sehen den Kleber nicht, nur seine Wirkung.</p>
                 </div>
+                <p style={{ display: 'flex', gap: 10, marginTop: 14, fontSize: '1rem', fontWeight: 600 }}>
+                  <span style={{ color: '#7f8cbd' }}>┄ erwartet: langsam</span>
+                  <span style={{ color: '#22d3ee' }}>━ beobachtet: schnell</span>
+                </p>
               </div>
-              <div className="visual"><GalaxyDiagram /></div>
+              <div className="visual">
+                <figure className="photo-frame">
+                  <img className="photo" src={IMG.andromeda} alt="Andromeda-Galaxie: Auch hier kreisen die äußeren Sterne zu schnell" loading="lazy" />
+                  <figcaption className="photo-cap">Andromeda — Rubins wichtigstes Messobjekt</figcaption>
+                </figure>
+              </div>
             </>
           )}
 
@@ -207,30 +194,24 @@ export default function App(): React.JSX.Element {
                 <p className="lead">Erst belächelt, dann bestätigt — so kam der Begriff in die Welt.</p>
                 <div className="split2">
                   <div className="person">
-                    <div className="avatar" style={{ background: 'radial-gradient(circle at 30% 30%, #7dd3fc, #1d4ed8)', color: '#04122b' }}>FZ</div>
+                    <img className="portrait" src={IMG.zwicky} alt="Porträt von Fritz Zwicky" loading="lazy" />
                     <h3>Fritz Zwicky</h3>
                     <div className="year">1933 · SCHWEIZ</div>
                     <p><strong>Astrophysiker</strong>, sah <strong>fehlende Masse</strong> in Galaxienhaufen und prägte <strong>„Dunkle Materie“</strong>.</p>
                   </div>
                   <div className="person">
-                    <div className="avatar" style={{ background: 'radial-gradient(circle at 30% 30%, #f472b6, #7c3aed)', color: '#fff' }}>VR</div>
+                    <img className="portrait" src={IMG.rubin} alt="Porträt von Vera Rubin" loading="lazy" />
                     <h3>Vera Rubin</h3>
                     <div className="year">1970ER · USA</div>
                     <p><strong>Astronomin</strong>, bewies sie mit <strong>präzisen Teleskop-Messungen</strong> der Galaxienrotation.</p>
                   </div>
                 </div>
               </div>
-              <div className="visual" aria-hidden="true">
-                <svg viewBox="0 0 300 260" style={{ maxWidth: 340 }}>
-                  <circle cx="90" cy="110" r="52" fill="none" stroke="#7dd3fc" strokeWidth="2" opacity="0.8" />
-                  <circle cx="90" cy="110" r="8" fill="#7dd3fc" />
-                  <circle cx="210" cy="110" r="52" fill="none" stroke="#f472b6" strokeWidth="2" opacity="0.8" />
-                  <circle cx="210" cy="110" r="8" fill="#f472b6" />
-                  <path d="M142 110 H158" stroke="#fbbf24" strokeWidth="2" strokeDasharray="5 5" />
-                  <text x="150" y="140" textAnchor="middle" fill="#fbbf24" fontSize="12" fontWeight="700">BESTÄTIGT</text>
-                  <text x="90" y="190" textAnchor="middle" fill="#b9c3ea" fontSize="12">1933 · Idee</text>
-                  <text x="210" y="190" textAnchor="middle" fill="#b9c3ea" fontSize="12">1970er · Beweis</text>
-                </svg>
+              <div className="visual">
+                <figure className="photo-frame">
+                  <img className="photo" src={IMG.abell} alt="Galaxienhaufen Abell 370 — solche Haufen untersuchte Zwicky" loading="lazy" />
+                  <figcaption className="photo-cap">Coma-Haufen-Typ: Zwickys Revier · Hubble</figcaption>
+                </figure>
               </div>
             </>
           )}
@@ -255,17 +236,11 @@ export default function App(): React.JSX.Element {
                   <p><strong>Abgeschirmt</strong> von Sonne und Strahlung warten sie auf extrem seltene Signale.</p>
                 </div>
               </div>
-              <div className="visual" aria-hidden="true">
-                <svg viewBox="0 0 320 260" style={{ maxWidth: 380 }}>
-                  <circle cx="160" cy="120" r="34" fill="#a78bfa" opacity="0.35" />
-                  <circle cx="160" cy="120" r="16" fill="#a78bfa" opacity="0.8" />
-                  <text x="160" y="124" textAnchor="middle" fill="#fff" fontSize="10" fontWeight="800">MASSE</text>
-                  <path d="M10 80 Q160 110 310 60" stroke="#7dd3fc" strokeWidth="2" fill="none" opacity="0.9" />
-                  <path d="M10 170 Q160 140 310 190" stroke="#7dd3fc" strokeWidth="2" fill="none" opacity="0.9" />
-                  <text x="160" y="220" textAnchor="middle" fill="#b9c3ea" fontSize="12">Licht ferner Galaxien wird gebogen</text>
-                  <rect x="40" y="232" width="240" height="4" rx="2" fill="#fbbf24" opacity="0.5" />
-                  <text x="160" y="250" textAnchor="middle" fill="#7f8cbd" fontSize="11">Detektor: tief, dunkel, abgeschirmt</text>
-                </svg>
+              <div className="visual">
+                <figure className="photo-frame">
+                  <img className="photo" src={IMG.abell} alt="Gravitationslinsen im Galaxienhaufen Abell 370: Licht ferner Galaxien wird zu Bögen verzerrt" loading="lazy" />
+                  <figcaption className="photo-cap">Abell 370: Bögen = verbogenes Licht ferner Galaxien · Hubble</figcaption>
+                </figure>
               </div>
             </>
           )}
@@ -280,19 +255,16 @@ export default function App(): React.JSX.Element {
                   <li><span className="tick">★</span><span>Benannt nach <strong>Nancy Grace Roman</strong> — erste Chef-Astronomin der NASA, <strong>„Mutter von Hubble“</strong>.</span></li>
                   <li><span className="tick">◉</span><span><strong>Ultra-weites Infrarot-Sichtfeld</strong> — viel größer als Hubble: kartiert <strong>Dunkle Materie</strong>, <strong>Dunkle Energie</strong> und <strong>Exoplaneten</strong>.</span></li>
                 </ul>
+                <div className="mini-card" style={{ marginTop: 12, display: 'flex', gap: 14, alignItems: 'center' }}>
+                  <img src={IMG.nancy} alt="Nancy Grace Roman, NASA-Porträt von 1969" loading="lazy" style={{ width: 72, height: 92, objectFit: 'cover', borderRadius: 10, border: '1px solid var(--line)', flex: 'none' }} />
+                  <p style={{ margin: 0 }}><strong>Nancy Grace Roman</strong> (1925–2018) setzte das Hubble-Teleskop gegen alle Widerstände durch.</p>
+                </div>
               </div>
-              <div className="visual" aria-hidden="true">
-                <svg viewBox="0 0 320 280" style={{ maxWidth: 380 }}>
-                  <rect x="130" y="60" width="60" height="80" rx="10" fill="#cbd5e1" opacity="0.9" />
-                  <rect x="142" y="30" width="36" height="34" rx="6" fill="#7dd3fc" opacity="0.9" />
-                  <rect x="60" y="90" width="46" height="16" rx="4" fill="#334155" />
-                  <rect x="214" y="90" width="46" height="16" rx="4" fill="#334155" />
-                  <circle cx="160" cy="190" r="10" fill="#fbbf24" />
-                  <circle cx="60" cy="220" r="2.5" fill="#fff" />
-                  <circle cx="260" cy="200" r="2" fill="#fff" />
-                  <circle cx="240" cy="60" r="2.4" fill="#7dd3fc" />
-                  <text x="160" y="240" textAnchor="middle" fill="#b9c3ea" fontSize="12">Weitfeld · Infrarot · L2</text>
-                </svg>
+              <div className="visual">
+                <figure className="photo-frame">
+                  <img className="photo" src={IMG.romanScope} alt="Künstlerische Darstellung des Nancy Grace Roman-Weltraumteleskops" loading="lazy" />
+                  <figcaption className="photo-cap">Roman: 100× Hubbles Sichtfeld · NASA Goddard</figcaption>
+                </figure>
               </div>
             </>
           )}
@@ -310,7 +282,7 @@ export default function App(): React.JSX.Element {
           )}
 
           {index === 7 && (
-            <div style={{ width: '100%', maxWidth: 900 }}>
+            <div style={{ width: '100%', maxWidth: 980 }}>
               <p className="kicker" style={{ textAlign: 'center' }}>{slide.kicker}</p>
               <h2 className="slide-title">Schlussvideo</h2>
               {!videoOn ? (
@@ -345,22 +317,6 @@ export default function App(): React.JSX.Element {
           <span><kbd>←</kbd> <kbd>→</kbd> blättern</span>
           <span><kbd>N</kbd> Notizen</span>
           <span><kbd>F</kbd> Vollbild</span>
-          {slide.targetSeconds > 0 ? (
-            <button
-              type="button"
-              className={timerClass}
-              onClick={() => (running ? setRunning(false) : (remaining <= 0 ? setElapsed(0) : setRunning(true)))}
-              title="Timer starten/pausieren/zurücksetzen"
-              aria-label={`Timer: ${formatTime(remaining)} übrig von ${formatTime(slide.targetSeconds)}`}
-            >
-              <span className="t-label">Ziel {formatTime(slide.targetSeconds)}</span>
-              <span className="t-time">{formatTime(remaining)}</span>
-              <span className="t-bar" aria-hidden="true"><i style={{ width: `${(1 - frac) * 100}%` }} /></span>
-              <span style={{ fontSize: 12, color: 'var(--dim)' }}>{running ? '⏸' : remaining <= 0 ? '↺' : '▶'}</span>
-            </button>
-          ) : (
-            <span className="timer" aria-label="Kein Zeitlimit">▶ Video</span>
-          )}
           <button type="button" className="icon-btn" onClick={() => setShowNotes((v) => !v)} aria-label="Sprechernotizen umschalten" title="Notizen (N)">
             🗒
           </button>
@@ -379,7 +335,7 @@ export default function App(): React.JSX.Element {
               <li key={n}>{n}</li>
             ))}
           </ul>
-          <div className="close-hint">Versteckt fürs Publikum · Klick oder <kbd>N</kbd> zum Schließen · elapsed {formatTime(elapsed)}</div>
+          <div className="close-hint">Versteckt fürs Publikum · Klick oder <kbd>N</kbd> zum Schließen</div>
         </aside>
       )}
     </div>

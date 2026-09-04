@@ -31,7 +31,6 @@ yarn preview    # dist/ lokal prüfen
 | Weiter/Zurück | Buttons oder <kbd>←</kbd>/<kbd>→</kbd> (auch <kbd>Space</kbd>, <kbd>PgUp</kbd>/<kbd>PgDn</kbd>) |
 | Anfang/Ende | <kbd>Home</kbd>/<kbd>End</kbd>, Punkte oben anklickbar |
 | Sprechernotizen | <kbd>N</kbd> oder 🗒-Button (Overlay nur für dich, Publikum sieht es nicht) |
-| Timer je Folie | Zielzeit oben (z. B. 2:00), Klick = Start/Pause/Reset; Gelb ≤ 15 s, Rot bei Überzug |
 | Vollbild | <kbd>F</kbd> |
 | Schließen | <kbd>Esc</kbd> schließt Notizen |
 
@@ -42,4 +41,11 @@ yarn preview    # dist/ lokal prüfen
 6. Roman-Teleskop, Start 30.8.2026 (1:30) · 7. Fazit (0:30) · 8. YouTube-Schlussvideo (Klick statt Autoplay)
 
 Alles Deutsch B2, Schlüsselbegriffe **fett**. Design: dunkles Cosmos-Thema, Starfield-Canvas,
-SVG-Donut + Galaxien-Diagramm, `prefers-reduced-motion` wird respektiert.
+echte Fotos (NASA/ESA Hubble, Wikimedia Commons), `prefers-reduced-motion` wird respektiert.
+
+## Bildnachweise (alle in `public/img/` gebündelt, offline lauffähig)
+
+- M51 / Andromeda / Abell 370 / Roman-Render: NASA, ESA, Hubble / Goddard (gemeinfrei)
+- Vera Rubin: American Institute of Physics (Nutzung mit Namensnennung)
+- Nancy Grace Roman (1969): NASA (gemeinfrei)
+- Fritz Zwicky (1960): ETH-Bibliothek via Wikimedia Commons (CC BY-SA 4.0)
