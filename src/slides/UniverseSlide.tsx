@@ -1,4 +1,14 @@
-import { Bullet, BulletList, Grad, MiniCard, SlideKicker, SlideTitle, VocabBox } from '../components/primitives';
+import { IMG } from '../images';
+import {
+  Bullet,
+  BulletList,
+  Grad,
+  MiniCard,
+  PhotoFigure,
+  SlideKicker,
+  SlideTitle,
+  VocabBox,
+} from '../components/primitives';
 import DonutChart from '../components/DonutChart';
 import type { SlideViewProps } from './types';
 
@@ -24,16 +34,23 @@ export default function UniverseSlide({ slide, training }: SlideViewProps): Reac
         <VocabBox words={slide.vocab ?? []} />
       </div>
       <div className="visual">
-        <div className="donut-col">
-          <DonutChart />
-          <div className="card-grid stack">
-            <MiniCard title="5 % normal" accent="sky">
-              Was wir sehen und anfassen.
-            </MiniCard>
-            <MiniCard title="27 % dunkel" accent="violet">
-              Unsichtbar, zieht aber.
-            </MiniCard>
+        <div className="duo">
+          <div className="donut-col">
+            <DonutChart />
+            <div className="card-grid stack">
+              <MiniCard title="5 % normal" accent="sky">
+                Was wir sehen und anfassen.
+              </MiniCard>
+              <MiniCard title="27 % dunkel" accent="violet">
+                Unsichtbar, zieht aber.
+              </MiniCard>
+            </div>
           </div>
+          <PhotoFigure
+            src={IMG.heschArtikel}
+            alt="Der Artikel „Was ist dunkle Materie?“ aus Hesch gwüsst? — die Quelle dieser Zahlen"
+            caption="Unsere Quelle: „Hesch gwüsst?“, Nr. 83"
+          />
         </div>
       </div>
     </>

@@ -8,4 +8,5 @@ export const IMG = {
   rubin: `${BASE}img/rubin-aip.jpg`,
   romanScope: `${BASE}img/roman-telescope.png`,
   nancy: `${BASE}img/nancy-roman.jpg`,
+  heschArtikel: `${BASE}img/hesch-gwuesst-artikel.jpg`,
 } as const;

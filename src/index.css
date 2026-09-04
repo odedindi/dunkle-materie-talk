@@ -414,6 +414,10 @@ kbd {
 .mini-card.dashed { border-style: dashed; border-color: rgba(167, 139, 250, 0.5); }
 .mini-card h3.accent-sky { color: #7dd3fc; }
 .mini-card h3.accent-violet { color: #a78bfa; }
+.duo { display: flex; gap: 18px; align-items: center; width: 100%; }
+.duo > .donut-col { flex: 1.15; min-width: 0; }
+.duo > .photo-frame { flex: 0 0 250px; }
+.duo .photo { max-height: 56vh; }
 
 .section-count { color: var(--dim); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
 
