@@ -27,6 +27,17 @@ export const SLIDES: Slide[] = [
   },
   {
     id: 1,
+    kicker: 'Die Quelle',
+    duration: '0,5 Minuten',
+    title: 'Unsere Quelle',
+    notes: [
+      'Zeigen: Genau dieser Artikel ist unsere einzige Quelle — alles, was folgt, steht hier.',
+      'Einordnen: Die Rubrik „Hesch gwüsst?“ erklärt jede Woche eine Frage aus der Wissenschaft, kurz und mit Bildern.',
+      'Überleitung: Schauen wir uns zuerst die wichtigste Zahl an: 5, 27, 68.',
+    ],
+  },
+  {
+    id: 2,
     kicker: 'Das Universum in Zahlen',
     duration: '2 Minuten',
     title: 'Woraus besteht das Universum?',
@@ -39,7 +50,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     kicker: 'Der Beweis',
     duration: '2 Minuten',
     title: 'Woher wissen wir, dass es sie gibt?',
@@ -50,7 +61,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     kicker: 'Die Entdecker',
     duration: '2 Minuten',
     title: 'Zwicky & Rubin',
@@ -61,7 +72,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     kicker: 'Fahndung',
     duration: '2 Minuten',
     title: 'Wie sucht man Unsichtbares?',
@@ -72,7 +83,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     kicker: 'Neu',
     duration: '1,5 Minuten',
     title: 'Das Roman-Weltraumteleskop',
@@ -84,7 +95,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     kicker: 'Fazit',
     duration: '0,5 Minuten',
     title: 'Das größte Rätsel bleibt',
@@ -96,7 +107,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     kicker: 'Zum Abschluss · Video',
     title: 'Schlussvideo',
     layout: 'single',
