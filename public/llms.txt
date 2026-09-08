@@ -1,0 +1,80 @@
+# Was ist Dunkle Materie? · B2-Präsentation
+
+> Interaktive Single-Page-Präsentation (10 Minuten) für einen Deutsch-B2-Kurs.
+> Thema nach dem Magazin „Hesch gwüsst?“. Dunkle Materie ist unsichtbar – über
+> die Schwerkraft aber messbar. Wir sehen nur etwa 5 % des Universums.
+
+## Stichpunkte
+
+- Interaktive Präsentation statt PowerPoint, live am Laptop/Beamer bedienbar
+- Static Build (Vite + React), offline lauffähig, kein Backend
+- 9 Folien, Deutsch B2, Schlüsselbegriffe hervorgehoben
+- Training-Modus: `?training=1` zeigt Sprechernotizen und Zeitangaben
+- Navigation: Pfeiltasten/Leertaste, Home/End, Vollbild mit F, Folien über Hash (#)
+
+## Der Inhalt (Folie für Folie)
+
+### 1. Was ist Dunkle Materie?
+Wir sehen nur etwa 5 % des Universums. Der Rest ist unsichtbar – heute folgen wir
+den Spuren des größten unsichtbaren Anteils. Nach dem Magazin „Hesch gwüsst?“ ·
+10 Minuten · 8 Szenen.
+
+### 2. Unsere Quelle
+Artikel der Rubrik „Hesch gwüsst?“ erklärt jede Woche eine Frage aus der
+Wissenschaft, kurz und mit Bildern. Genau dieser Artikel ist die einzige Quelle.
+
+### 3. Woraus besteht das Universum?
+- 5 % normale Materie: Sterne, Planeten, wir – alles Sichtbare.
+- 27 % Dunkle Materie: unsichtbar, aber über Schwerkraft messbar.
+- 68 % Dunkle Energie: treibt die beschleunigte Ausdehnung.
+
+Vokabeln B2: unsichtbar (invisible), messen (to measure), die Wechselwirkung (interaction).
+
+### 4. Woher wissen wir, dass es sie gibt?
+Außere Sterne der Spiralgalaxien müssten laut sichtbarer Masse langsamer kreisen.
+Sie sind aber zu schnell – also muss unsichtbare Masse ziehen. Metapher:
+„kosmischer Kleber“ – ein Netz hält Galaxien zusammen, wir sehen nur die Wirkung.
+
+### 5. Zwicky & Rubin
+- Fritz Zwicky (1933 · Schweiz): Astrophysiker, sah fehlende Masse in Galaxienhaufen,
+  prägte den Begriff „Dunkle Materie“.
+- Vera Rubin (1970er · USA): Astronomin, bewies es mit präzisen Teleskop-Messungen
+  der Galaxienrotation.
+
+### 6. Wie sucht man Unsichtbares?
+- Hypothetische Teilchen: WIMPs und Axionen – fast ohne Wechselwirkung, schwer zu fangen.
+- Weltraum-Teleskope: Gravitationslinsen – Licht wird um Masse gebogen, so wird
+  Unsichtbares sichtbar.
+- Detektoren tief unter der Erde: abgeschirmt von Sonne und Strahlung, warten auf
+  seltene Signale.
+
+### 7. Das Roman-Weltraumteleskop
+- NASA-Start: 30. August 2026, SpaceX Falcon Heavy, ab Kennedy Space Center,
+  Ziel Sonne-Erde-L2.
+- Benannt nach Nancy Grace Roman (1925–2018), erste Chef-Astronomin der NASA,
+  „Mutter von Hubble“.
+- Ultra-weites Infrarot-Sichtfeld – viel größer als Hubble: kartiert Dunkle Materie,
+  Dunkle Energie und Exoplaneten.
+
+### 8. Das größte Rätsel bleibt
+Dunkle Materie ist eines der größten ungelösten Rätsel der Physik – und Missionen
+wie Roman könnten es in den kommenden Jahren endlich lösen.
+
+### 9. Schlussvideo
+Abschlussvideo zum Thema Dunkle Materie (gehostet auf YouTube), von Klick
+gestartet statt Autoplay.
+
+## Bildnachweise (alle in /img/ gebündelt, offline lauffähig)
+
+- M51 / Andromeda / Abell 370 / Roman-Render: NASA, ESA, Hubble / Goddard (gemeinfrei)
+- Vera Rubin: American Institute of Physics (Nutzung mit Namensnennung)
+- Nancy Grace Roman (1969): NASA (gemeinfrei)
+- Fritz Zwicky (1960): ETH-Bibliothek via Wikimedia Commons (CC BY-SA 4.0)
+
+## Hinweise für LLMs
+
+Diese Datei ist maschinenlesbar nach der llms.txt-Konvention
+(https://llmstxt.org/). Die Folien der Präsentation erreichen Sie über URLs der
+Form `#/0` bis `#/8` (z. B. https://dunkle-materie.odedo.dev/#/3). Der vollständige
+Inhalt ist zusätzlich im `<noscript>`-Block von index.html und als JSON-LD
+Structured Data auszeichnungsbereit enthalten.

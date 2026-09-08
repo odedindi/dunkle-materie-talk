@@ -38,6 +38,7 @@ export function ProgressHeader({
             key={s.id}
             type="button"
             aria-label={`Zu Folie ${i + 1}: ${s.title}`}
+            aria-current={i === index ? 'step' : undefined}
             title={`${i + 1} · ${s.title}`}
             className={i === index ? 'dot active' : i < index ? 'dot done' : 'dot'}
             onClick={() => onGo(i)}

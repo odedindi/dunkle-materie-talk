@@ -479,6 +479,25 @@ kbd {
   border: 0;
 }
 
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: #0b1023;
+  color: #fff;
+  border: 1px solid #a78bfa;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
 /* ---------- Notes ---------- */
 .notes {
   position: fixed;

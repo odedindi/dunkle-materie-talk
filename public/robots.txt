@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dunkle-materie.odedo.dev/sitemap.xml

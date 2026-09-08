@@ -13,10 +13,13 @@ export default function App(): React.JSX.Element {
 
   return (
     <div className="app">
+      <a className="sr-only skip-link" href="#main">
+        Zum Foliensatz springen
+      </a>
       <Starfield />
       <ProgressHeader index={index} total={total} items={SLIDES} onGo={deck.goTo} />
 
-      <main className="stage-wrap">
+      <main id="main" className="stage-wrap" tabIndex={-1}>
         <SlideShell slide={slide} index={index} total={total}>
           {View ? <View slide={slide} training={training} /> : null}
         </SlideShell>
