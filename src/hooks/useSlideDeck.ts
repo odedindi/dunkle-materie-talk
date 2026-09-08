@@ -13,21 +13,63 @@ export interface SlideDeck {
   setShowNotes: Dispatch<SetStateAction<boolean>>
 }
 
+const HASH_RE = /^#\/?(\d+)$/
+
+/**
+ * Read the current slide index from the URL hash (`#`, `#3`, `#/3`).
+ * Returns -1 when the hash carries no valid index; callers clamp to a range.
+ */
+function parseIndexFromHash(total: number): number {
+  const m = HASH_RE.exec(window.location.hash)
+  if (!m) return -1
+  const n = Number(m[1])
+  return Number.isInteger(n) && n >= 0 && n < total ? n : -1
+}
+
+/** Persist the slide index to the URL, using a `#N` hash for slides 1+ and no hash for slide 0. */
+function writeHash(index: number): void {
+  const target = index > 0 ? `#${index}` : ''
+  // Skip when already in sync to avoid redundant history entries.
+  if (window.location.hash === target) return
+
+  if (index > 0) {
+    window.location.hash = target
+  } else {
+    // Slide 0: drop the hash entirely but still record a history entry so back/forward work.
+    history.pushState(null, '', window.location.pathname + window.location.search)
+    window.dispatchEvent(new HashChangeEvent('hashchange'))
+  }
+}
+
 export function useSlideDeck(training: boolean): SlideDeck {
-  const [index, setIndex] = useState(0)
-  const [showNotes, setShowNotes] = useState(false)
   const total = SLIDES.length
+  const [index, setIndex] = useState(() => {
+    const fromHash = parseIndexFromHash(total)
+    return fromHash >= 0 ? fromHash : 0
+  })
+  const [showNotes, setShowNotes] = useState(false)
   const slide = SLIDES[Math.min(index, total - 1)] ?? SLIDES[0]
 
   const goTo = useCallback(
     (next: number) => {
-      setIndex(Math.max(0, Math.min(total - 1, next)))
+      const clamped = Math.max(0, Math.min(total - 1, next))
+      setIndex(clamped)
+      writeHash(clamped)
       setShowNotes(false)
     },
     [total],
   )
   const next = useCallback(() => goTo(index + 1), [goTo, index])
   const prev = useCallback(() => goTo(index - 1), [goTo, index])
+
+  useEffect(() => {
+    const onHashChange = (): void => {
+      const fromHash = parseIndexFromHash(total)
+      if (fromHash >= 0) setIndex(fromHash)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [total])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent): void => {
