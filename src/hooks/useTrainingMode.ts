@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 /**
  * Training mode is toggled via query param (`?training=1`).
@@ -9,6 +9,6 @@ import { useState } from 'react';
 export function useTrainingMode(): boolean {
   const [training] = useState(
     () => new URLSearchParams(window.location.search).get('training') === '1',
-  );
-  return training;
+  )
+  return training
 }

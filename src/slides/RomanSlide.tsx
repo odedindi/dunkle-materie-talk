@@ -1,6 +1,13 @@
-import { IMG } from '../images';
-import { Bullet, BulletList, Grad, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives';
-import type { SlideViewProps } from './types';
+import { IMG } from '../images'
+import {
+  Bullet,
+  BulletList,
+  Grad,
+  PhotoFigure,
+  SlideKicker,
+  SlideTitle,
+} from '../components/primitives'
+import type { SlideViewProps } from './types'
 
 export default function RomanSlide({ slide, training }: SlideViewProps): React.JSX.Element {
   return (
@@ -21,7 +28,8 @@ export default function RomanSlide({ slide, training }: SlideViewProps): React.J
           </Bullet>
           <Bullet marker="◉">
             <strong>Ultra-weites Infrarot-Sichtfeld</strong> — viel größer als Hubble: kartiert{' '}
-            <strong>Dunkle Materie</strong>, <strong>Dunkle Energie</strong> und <strong>Exoplaneten</strong>.
+            <strong>Dunkle Materie</strong>, <strong>Dunkle Energie</strong> und{' '}
+            <strong>Exoplaneten</strong>.
           </Bullet>
         </BulletList>
         <div className="mini-card media-row stack">
@@ -32,8 +40,8 @@ export default function RomanSlide({ slide, training }: SlideViewProps): React.J
             loading="lazy"
           />
           <p style={{ margin: 0 }}>
-            <strong>Nancy Grace Roman</strong> (1925–2018) setzte das Hubble-Teleskop gegen alle Widerstände
-            durch.
+            <strong>Nancy Grace Roman</strong> (1925–2018) setzte das Hubble-Teleskop gegen alle
+            Widerstände durch.
           </p>
         </div>
       </div>
@@ -45,5 +53,5 @@ export default function RomanSlide({ slide, training }: SlideViewProps): React.J
         />
       </div>
     </>
-  );
+  )
 }

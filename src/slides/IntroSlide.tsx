@@ -1,6 +1,14 @@
-import { IMG } from '../images';
-import { Bullet, BulletList, Grad, Lead, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives';
-import type { SlideViewProps } from './types';
+import { IMG } from '../images'
+import {
+  Bullet,
+  BulletList,
+  Grad,
+  Lead,
+  PhotoFigure,
+  SlideKicker,
+  SlideTitle,
+} from '../components/primitives'
+import type { SlideViewProps } from './types'
 
 export default function IntroSlide({ slide, training }: SlideViewProps): React.JSX.Element {
   return (
@@ -11,8 +19,9 @@ export default function IntroSlide({ slide, training }: SlideViewProps): React.J
           Was ist <Grad>Dunkle Materie?</Grad>
         </SlideTitle>
         <Lead>
-          Wir sehen nur <strong>etwa 5&nbsp;%</strong> des Universums. Der Rest ist <strong>unsichtbar</strong> —
-          heute folgen wir den Spuren des größten unsichtbaren Anteils.
+          Wir sehen nur <strong>etwa 5&nbsp;%</strong> des Universums. Der Rest ist{' '}
+          <strong>unsichtbar</strong> — heute folgen wir den Spuren des größten unsichtbaren
+          Anteils.
         </Lead>
         <Lead variant="small">
           Nach dem Magazin <strong>„Hesch gwüsst?“</strong> · 10 Minuten · 8 Szenen
@@ -35,5 +44,5 @@ export default function IntroSlide({ slide, training }: SlideViewProps): React.J
         />
       </div>
     </>
-  );
+  )
 }

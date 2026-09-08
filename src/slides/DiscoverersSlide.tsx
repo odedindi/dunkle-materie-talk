@@ -1,12 +1,12 @@
-import { IMG } from '../images';
-import { Grad, Lead, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives';
-import type { SlideViewProps } from './types';
+import { IMG } from '../images'
+import { Grad, Lead, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives'
+import type { SlideViewProps } from './types'
 
 interface Person {
-  name: string;
-  year: string;
-  img: string;
-  text: React.JSX.Element;
+  name: string
+  year: string
+  img: string
+  text: React.JSX.Element
 }
 
 const PEOPLE: Person[] = [
@@ -16,8 +16,8 @@ const PEOPLE: Person[] = [
     img: IMG.zwicky,
     text: (
       <>
-        <strong>Astrophysiker</strong>, sah <strong>fehlende Masse</strong> in Galaxienhaufen und prägte{' '}
-        <strong>„Dunkle Materie“</strong>.
+        <strong>Astrophysiker</strong>, sah <strong>fehlende Masse</strong> in Galaxienhaufen und
+        prägte <strong>„Dunkle Materie“</strong>.
       </>
     ),
   },
@@ -32,7 +32,7 @@ const PEOPLE: Person[] = [
       </>
     ),
   },
-];
+]
 
 export default function DiscoverersSlide({ slide, training }: SlideViewProps): React.JSX.Element {
   return (
@@ -62,5 +62,5 @@ export default function DiscoverersSlide({ slide, training }: SlideViewProps): R
         />
       </div>
     </>
-  );
+  )
 }

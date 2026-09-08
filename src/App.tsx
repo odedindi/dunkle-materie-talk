@@ -1,15 +1,15 @@
-import Starfield from './components/Starfield';
-import { ControlsFooter, NotesOverlay, ProgressHeader, SlideShell } from './components/chrome';
-import { SLIDES } from './content';
-import { useSlideDeck } from './hooks/useSlideDeck';
-import { useTrainingMode } from './hooks/useTrainingMode';
-import { SLIDE_VIEWS } from './slides/registry';
+import Starfield from './components/Starfield'
+import { ControlsFooter, NotesOverlay, ProgressHeader, SlideShell } from './components/chrome'
+import { SLIDES } from './content'
+import { useSlideDeck } from './hooks/useSlideDeck'
+import { useTrainingMode } from './hooks/useTrainingMode'
+import { SLIDE_VIEWS } from './slides/registry'
 
 export default function App(): React.JSX.Element {
-  const training = useTrainingMode();
-  const deck = useSlideDeck(training);
-  const { slide, index, total } = deck;
-  const View = SLIDE_VIEWS[slide.id];
+  const training = useTrainingMode()
+  const deck = useSlideDeck(training)
+  const { slide, index, total } = deck
+  const View = SLIDE_VIEWS[slide.id]
 
   return (
     <div className="app">
@@ -35,5 +35,5 @@ export default function App(): React.JSX.Element {
         <NotesOverlay index={index} notes={slide.notes} onClose={() => deck.setShowNotes(false)} />
       )}
     </div>
-  );
+  )
 }

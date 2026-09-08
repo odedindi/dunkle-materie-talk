@@ -6,9 +6,9 @@ import {
   SlideKicker,
   SlideTitle,
   VocabBox,
-} from '../components/primitives';
-import DonutChart from '../components/DonutChart';
-import type { SlideViewProps } from './types';
+} from '../components/primitives'
+import DonutChart from '../components/DonutChart'
+import type { SlideViewProps } from './types'
 
 export default function UniverseSlide({ slide, training }: SlideViewProps): React.JSX.Element {
   return (
@@ -23,13 +23,14 @@ export default function UniverseSlide({ slide, training }: SlideViewProps): Reac
             <strong>Normale Materie:</strong> Sterne, Planeten, wir — alles Sichtbare.
           </Bullet>
           <Bullet marker="27" tone="violet" size="lg">
-            <strong>Dunkle Materie:</strong> unsichtbar, aber über <strong>Schwerkraft</strong> messbar.
+            <strong>Dunkle Materie:</strong> unsichtbar, aber über <strong>Schwerkraft</strong>{' '}
+            messbar.
           </Bullet>
           <Bullet marker="68" tone="teal" size="lg">
             <strong>Dunkle Energie:</strong> treibt die <strong>beschleunigte Ausdehnung</strong>.
           </Bullet>
         </BulletList>
-        <VocabBox words={slide.vocab ?? []} training={training}/>
+        <VocabBox words={slide.vocab ?? []} training={training} />
       </div>
       <div className="visual">
         <div className="donut-col">
@@ -45,5 +46,5 @@ export default function UniverseSlide({ slide, training }: SlideViewProps): Reac
         </div>
       </div>
     </>
-  );
+  )
 }

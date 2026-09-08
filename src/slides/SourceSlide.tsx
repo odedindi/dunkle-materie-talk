@@ -1,6 +1,14 @@
-import { IMG } from '../images';
-import { Bullet, BulletList, Grad, Lead, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives';
-import type { SlideViewProps } from './types';
+import { IMG } from '../images'
+import {
+  Bullet,
+  BulletList,
+  Grad,
+  Lead,
+  PhotoFigure,
+  SlideKicker,
+  SlideTitle,
+} from '../components/primitives'
+import type { SlideViewProps } from './types'
 
 export default function SourceSlide({ slide, training }: SlideViewProps): React.JSX.Element {
   return (
@@ -31,5 +39,5 @@ export default function SourceSlide({ slide, training }: SlideViewProps): React.
         </div>
       </div>
     </>
-  );
+  )
 }

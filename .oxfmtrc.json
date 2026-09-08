@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "quoteProps": "as-needed",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "jsxSingleQuote": false,
+  "singleAttributePerLine": false,
+  "endOfLine": "lf",
+  "insertFinalNewline": true,
+  "ignorePatterns": ["dist/", "node_modules/", "public/", "*.tsbuildinfo", "README.md"]
+}

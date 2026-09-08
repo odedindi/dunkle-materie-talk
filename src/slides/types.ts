@@ -1,6 +1,6 @@
-import type { Slide } from '../content';
+import type { Slide } from '../content'
 
 export interface SlideViewProps {
-  slide: Slide;
-  training: boolean;
+  slide: Slide
+  training: boolean
 }

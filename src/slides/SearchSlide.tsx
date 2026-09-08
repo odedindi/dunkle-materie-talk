@@ -1,6 +1,6 @@
-import { IMG } from '../images';
-import { Grad, MiniCard, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives';
-import type { SlideViewProps } from './types';
+import { IMG } from '../images'
+import { Grad, MiniCard, PhotoFigure, SlideKicker, SlideTitle } from '../components/primitives'
+import type { SlideViewProps } from './types'
 
 export default function SearchSlide({ slide, training }: SlideViewProps): React.JSX.Element {
   return (
@@ -12,17 +12,18 @@ export default function SearchSlide({ slide, training }: SlideViewProps): React.
         </SlideTitle>
         <div className="card-grid">
           <MiniCard title="Hypothetische Teilchen">
-            <strong>WIMPs</strong> und <strong>Axionen</strong> — fast ohne <strong>Wechselwirkung</strong>,
-            extrem schwer zu fangen.
+            <strong>WIMPs</strong> und <strong>Axionen</strong> — fast ohne{' '}
+            <strong>Wechselwirkung</strong>, extrem schwer zu fangen.
           </MiniCard>
           <MiniCard title="Weltraum-Teleskope">
-            <strong>Gravitationslinsen:</strong> Licht wird um Masse <strong>gebogen</strong> — so wird
-            Unsichtbares sichtbar.
+            <strong>Gravitationslinsen:</strong> Licht wird um Masse <strong>gebogen</strong> — so
+            wird Unsichtbares sichtbar.
           </MiniCard>
         </div>
         <div className="stack">
           <MiniCard title="Detektoren tief unter der Erde">
-            <strong>Abgeschirmt</strong> von Sonne und Strahlung warten sie auf extrem seltene Signale.
+            <strong>Abgeschirmt</strong> von Sonne und Strahlung warten sie auf extrem seltene
+            Signale.
           </MiniCard>
         </div>
       </div>
@@ -34,5 +35,5 @@ export default function SearchSlide({ slide, training }: SlideViewProps): React.
         />
       </div>
     </>
-  );
+  )
 }

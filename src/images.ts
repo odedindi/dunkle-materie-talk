@@ -1,4 +1,4 @@
-const BASE = import.meta.env.BASE_URL;
+const BASE = import.meta.env.BASE_URL
 
 export const IMG = {
   whirlpool: `${BASE}img/whirlpool.jpg`,
@@ -9,4 +9,4 @@ export const IMG = {
   romanScope: `${BASE}img/roman-telescope.png`,
   nancy: `${BASE}img/nancy-roman.jpg`,
   heschArtikel: `${BASE}img/hesch-gwuesst-artikel.jpg`,
-} as const;
+} as const

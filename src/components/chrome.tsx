@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react';
-import type { Slide } from '../content';
+import type { ReactNode } from 'react'
+import type { Slide } from '../content'
 
 export interface SlideMeta {
-  id: number;
-  title: string;
+  id: number
+  title: string
 }
 
 export function ProgressHeader({
@@ -12,10 +12,10 @@ export function ProgressHeader({
   items,
   onGo,
 }: {
-  index: number;
-  total: number;
-  items: SlideMeta[];
-  onGo: (next: number) => void;
+  index: number
+  total: number
+  items: SlideMeta[]
+  onGo: (next: number) => void
 }): React.JSX.Element {
   return (
     <header className="topbar">
@@ -45,7 +45,7 @@ export function ProgressHeader({
         ))}
       </nav>
     </header>
-  );
+  )
 }
 
 export function ControlsFooter({
@@ -56,16 +56,22 @@ export function ControlsFooter({
   onNext,
   onToggleNotes,
 }: {
-  index: number;
-  total: number;
-  training: boolean;
-  onPrev: () => void;
-  onNext: () => void;
-  onToggleNotes: () => void;
+  index: number
+  total: number
+  training: boolean
+  onPrev: () => void
+  onNext: () => void
+  onToggleNotes: () => void
 }): React.JSX.Element {
   return (
     <footer className="controls">
-      <button type="button" className="nav-btn" onClick={onPrev} disabled={index === 0} aria-label="Zurück">
+      <button
+        type="button"
+        className="nav-btn"
+        onClick={onPrev}
+        disabled={index === 0}
+        aria-label="Zurück"
+      >
         ← Zurück
       </button>
 
@@ -107,7 +113,7 @@ export function ControlsFooter({
         Weiter →
       </button>
     </footer>
-  );
+  )
 }
 
 export function NotesOverlay({
@@ -115,12 +121,18 @@ export function NotesOverlay({
   notes,
   onClose,
 }: {
-  index: number;
-  notes: string[];
-  onClose: () => void;
+  index: number
+  notes: string[]
+  onClose: () => void
 }): React.JSX.Element {
   return (
-    <aside className="notes" role="dialog" aria-modal="false" aria-label="Sprechernotizen" onClick={onClose}>
+    <aside
+      className="notes"
+      role="dialog"
+      aria-modal="false"
+      aria-label="Sprechernotizen"
+      onClick={onClose}
+    >
       <h4>Notizen · Folie {index + 1} — nur für dich</h4>
       <ul>
         {notes.map((n) => (
@@ -131,7 +143,7 @@ export function NotesOverlay({
         Versteckt fürs Publikum · Klick oder <kbd>N</kbd> zum Schließen
       </div>
     </aside>
-  );
+  )
 }
 
 export function SlideShell({
@@ -140,12 +152,12 @@ export function SlideShell({
   total,
   children,
 }: {
-  slide: Slide;
-  index: number;
-  total: number;
-  children: ReactNode;
+  slide: Slide
+  index: number
+  total: number
+  children: ReactNode
 }): React.JSX.Element {
-  const single = slide.layout === 'single';
+  const single = slide.layout === 'single'
   return (
     <section
       key={slide.id}
@@ -153,8 +165,11 @@ export function SlideShell({
       aria-roledescription="Folie"
       aria-label={`Folie ${index + 1} von ${total}: ${slide.title}`}
     >
-      <span className="sr-only" aria-live="polite">{`Folie ${index + 1} von ${total}: ${slide.title}`}</span>
+      <span
+        className="sr-only"
+        aria-live="polite"
+      >{`Folie ${index + 1} von ${total}: ${slide.title}`}</span>
       {children}
     </section>
-  );
+  )
 }

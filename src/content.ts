@@ -1,16 +1,16 @@
-import type { SlideId } from './slides/registry';
+import type { SlideId } from './slides/registry'
 
-export const VIDEO_ID = '6QLA49tJfzY';
+export const VIDEO_ID = '6QLA49tJfzY'
 
 export interface Slide {
-  id: SlideId;
-  kicker: string;
+  id: SlideId
+  kicker: string
   /** Shown only in training mode (`?training=1`); hidden in class. */
-  duration?: string;
-  title: string;
-  layout?: 'single';
-  vocab?: string[];
-  notes: string[];
+  duration?: string
+  title: string
+  layout?: 'single'
+  vocab?: string[]
+  notes: string[]
 }
 
 export const SLIDES: Slide[] = [
@@ -116,4 +116,4 @@ export const SLIDES: Slide[] = [
       'Falls kein Ton/Internet: Inhalt mündlich zusammenfassen.',
     ],
   },
-];
+]

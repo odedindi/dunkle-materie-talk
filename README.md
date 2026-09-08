@@ -33,13 +33,13 @@ yarn preview    # dist/ lokal prüfen
 
 ## Bedienung im Unterricht
 
-| Aktion | Wie |
-|---|---|
-| Weiter/Zurück | Buttons oder <kbd>←</kbd>/<kbd>→</kbd> (auch <kbd>Space</kbd>, <kbd>PgUp</kbd>/<kbd>PgDn</kbd>) |
-| Anfang/Ende | <kbd>Home</kbd>/<kbd>End</kbd>, Punkte oben anklickbar |
-| Sprechernotizen | <kbd>N</kbd> oder 🗒-Button (Overlay nur für dich, Publikum sieht es nicht) |
-| Vollbild | <kbd>F</kbd> |
-| Schließen | <kbd>Esc</kbd> schließt Notizen |
+| Aktion          | Wie                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| Weiter/Zurück   | Buttons oder <kbd>←</kbd>/<kbd>→</kbd> (auch <kbd>Space</kbd>, <kbd>PgUp</kbd>/<kbd>PgDn</kbd>) |
+| Anfang/Ende     | <kbd>Home</kbd>/<kbd>End</kbd>, Punkte oben anklickbar                                          |
+| Sprechernotizen | <kbd>N</kbd> oder 🗒-Button (Overlay nur für dich, Publikum sieht es nicht)                      |
+| Vollbild        | <kbd>F</kbd>                                                                                    |
+| Schließen       | <kbd>Esc</kbd> schließt Notizen                                                                 |
 
 ## Folien (8)
 
